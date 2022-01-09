@@ -1,0 +1,102 @@
+{
+  "name": "parcel2",
+  "source": [
+    "src/index.html"
+  ],
+  "type": "module",
+  "scripts": {
+    "server": "parcel",
+    "dev": "parcel build --no-optimize",
+    "build": "parcel build --public-url ./",
+    "test": "npx jest",
+    "test-coverage": "npx jest --coverage"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.1",
+    "autoprefixer": "^10.4.0",
+    "parcel": "^2.0.1",
+    "parcel-namer-rewrite": "^2.0.0-rc.1",
+    "posthtml": "^0.16.5",
+    "posthtml-include": "^1.7.2",
+    "sharp": "^0.29.3",
+    "eslint": "^8.4.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jest": "^25.3.0",
+    "jest": "^27.4.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "prettier": "^2.4.0"
+  },
+  "posthtml": {
+    "plugins": {
+      "posthtml-include": {}
+    }
+  },
+  "htmlnano": {
+    "collapseAttributeWhitespace": false,
+    "collapseBooleanAttributes": false,
+    "collapseWhitespace": false,
+    "removeComments": false,
+    "minifyJson": false,
+    "minifySvg": false
+  },
+  "sass": {
+    "includePaths": [
+      "node_modules"
+    ]
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {
+        "grid": true,
+        "overrideBrowserslist": [
+          "> 1%",
+          "last 4 versions",
+          "ie >= 9"
+        ]
+      }
+    }
+  },
+  "cssnano": {
+    "preset": [
+      "default",
+      {
+        "minifyFontValues": {
+          "removeQuotes": false
+        },
+        "normalizeUrl": false
+      }
+    ]
+  },
+  "sharp": {
+    "jpeg": {
+      "quality": 30,
+      "chromaSubsampling": "4:4:4"
+    },
+    "webp": {
+      "nearLossless": true
+    },
+    "png": {
+      "palette": true
+    }
+  },
+  "notes": {
+    "parcel-docs": "https://parceljs.org/plugin-system/overview/",
+    "sharp-image-compressor": "https://sharp.pixelplumbing.com/api-output#jpeg",
+    "parcel-namer-rewrite-example": "https://github.com/ol-loginov/parcel-namer-rewrite/issues/6#issue-992916247"
+  },
+  "parcel-namer-rewrite": {
+    "rules": {
+      "(.*)\\.(woff2?|ttf)": "fonts/$1.$2",
+      "(.*)\\.(svg|png|gif|jpg|jpeg)": "img/$1.$2",
+      "(.*)\\.(css)": "css/styles.{hash}.$2",
+      "(.*)\\.(js)": "js/$1.{hash}.$2"
+    }
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
