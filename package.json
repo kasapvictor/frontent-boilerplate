@@ -24,11 +24,14 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jest": "^25.3.0",
-    "jest": "^27.4.3"
+    "jest": "^27.4.3",
+    "prettier": "^2.4.0"
   },
   "dependencies": {
+    "axios": "^0.26.0",
+    "dotenv": "^16.0.0",
     "lodash": "^4.17.21",
-    "prettier": "^2.4.0"
+    "on-change": "^4.0.0"
   },
   "posthtml": {
     "plugins": {
