@@ -11,7 +11,6 @@
     "test": "npx jest",
     "test-coverage": "npx jest --coverage"
   },
-  "browserslist": "> 0.5%, last 2 versions, not dead",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.0.1",
     "autoprefixer": "^10.4.0",
@@ -54,12 +53,7 @@
   "postcss": {
     "plugins": {
       "autoprefixer": {
-        "grid": true,
-        "overrideBrowserslist": [
-          "> 1%",
-          "last 4 versions",
-          "ie >= 9"
-        ]
+        "grid": true
       }
     }
   },
