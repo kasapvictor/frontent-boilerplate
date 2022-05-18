@@ -17,7 +17,7 @@ test:
 	npx jest
 
 test-coverage:
-	npx jest -- --coverage --coverageProvider=v8
+	npx jest --coverage --coverageProvider=v8
 
 server: rm-cache rm-dist
 	npx parcel src/*.html --dist-dir dist/ --port 1234 --open --target default
