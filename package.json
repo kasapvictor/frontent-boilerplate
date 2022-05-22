@@ -1,36 +1,52 @@
 {
-  "name": "parcel2",
+  "name": "parcel-2",
+  "version": "1.0.0",
   "source": [
-    "src/index.html"
+    "./src/index.html"
   ],
-  "type": "module",
+  "author": "Victor Kasap",
+  "license": "ISC",
   "scripts": {
-    "server": "parcel",
-    "dev": "parcel build --no-optimize",
-    "build": "parcel build --public-url ./",
-    "test": "npx jest",
-    "test-coverage": "npx jest --coverage"
+    "clear": "rimraf dist",
+    "server": "parcel --port 4444 --dist-dir development",
+    "prefixer": "postcss ./dist/css/*.css -p -d ./dist/css -m",
+    "build:dev": "npm run clear && parcel build --no-cache --no-optimize --no-source-maps --public-url ./",
+    "build:prod": "npm run clear && clear && parcel build --no-cache --public-url ./ && npm run prefixer"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.1",
-    "autoprefixer": "^10.4.0",
-    "parcel": "^2.0.1",
-    "parcel-namer-rewrite": "^2.0.0-rc.1",
-    "posthtml": "^0.16.5",
-    "posthtml-include": "^1.7.2",
-    "sharp": "^0.29.3",
-    "eslint": "^8.4.1",
+    "@parcel/optimizer-cssnano": "^2.5.0",
+    "@parcel/transformer-sass": "^2.5.0",
+    "@parcel/transformer-typescript-tsc": "^2.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
+    "autoprefixer": "^10.4.7",
+    "eslint": "^8.16.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-jest": "^25.3.0",
-    "jest": "^27.4.3",
-    "prettier": "^2.4.0"
+    "eslint-plugin-import": "^2.26.0",
+    "parcel": "^2.5.0",
+    "parcel-namer-rewrite": "^2.0.0-rc.2",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^9.1.0",
+    "postcss-preset-env": "^7.6.0",
+    "posthtml-include": "^1.7.4",
+    "prettier": "^2.4.0",
+    "rimraf": "^3.0.2",
+    "sharp": "^0.29.3",
+    "typescript": "^4.6.4"
   },
   "dependencies": {
     "axios": "^0.26.0",
     "dotenv": "^16.0.0",
     "lodash": "^4.17.21",
     "on-change": "^4.0.0"
+  },
+  "parcel-namer-rewrite": {
+    "rules": {
+      "(.*)\\.(woff2?|ttf)": "fonts/$1.$2",
+      "(.*)\\.(svg|png|gif|jpg|jpeg)": "img/$1.$2",
+      "(.*)\\.(css)": "css/styles.$2",
+      "(.*)\\.(js)": "js/$1.{hash}.$2"
+    }
   },
   "posthtml": {
     "plugins": {
@@ -44,18 +60,6 @@
     "removeComments": false,
     "minifyJson": false,
     "minifySvg": false
-  },
-  "sass": {
-    "includePaths": [
-      "node_modules"
-    ]
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {
-        "grid": true
-      }
-    }
   },
   "cssnano": {
     "preset": [
@@ -79,21 +83,5 @@
     "png": {
       "palette": true
     }
-  },
-  "notes": {
-    "parcel-docs": "https://parceljs.org/plugin-system/overview/",
-    "sharp-image-compressor": "https://sharp.pixelplumbing.com/api-output#jpeg",
-    "parcel-namer-rewrite-example": "https://github.com/ol-loginov/parcel-namer-rewrite/issues/6#issue-992916247"
-  },
-  "parcel-namer-rewrite": {
-    "rules": {
-      "(.*)\\.(woff2?|ttf)": "fonts/$1.$2",
-      "(.*)\\.(svg|png|gif|jpg|jpeg)": "img/$1.$2",
-      "(.*)\\.(css)": "css/styles.{hash}.$2",
-      "(.*)\\.(js)": "js/$1.{hash}.$2"
-    }
-  },
-  "jest": {
-    "testEnvironment": "node"
   }
 }

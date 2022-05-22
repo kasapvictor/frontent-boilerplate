@@ -1,11 +1,23 @@
-install:
+npm-setup:
+	npm install
+
+npm-ci:
 	npm ci
 
+yarn-install:
+	yarn install
+
+yarn-ci:
+	yarn install --frozen-lockfile
+
 rm-cache:
-	rm -rf ./.parcel-cache
+	npx rimraf ./.parcel-cache
 
 rm-dist:
-	rm -rf ./dist
+	npx rimraf ./dist
+
+rm-development:
+	npx rimraf ./development
 
 lint:
 	npx eslint --fix ./src/scripts
@@ -13,19 +25,21 @@ lint:
 pretty:
 	npx prettier --write ./src/scss && npx prettier --write ./src/scripts
 
-test:
-	npx jest
+prefixer:
+	npx postcss ./dist/css/*.css -p -d ./dist/css -m
 
-test-coverage:
-	npx jest -- --coverage --coverageProvider=v8
+# WEB
+server: rm-cache rm-development
+	npx parcel --port 4444 --dist-dir development
 
-server: rm-cache rm-dist
-	npx parcel src/*.html --dist-dir dist/ --port 1234 --open --target default
+# NO AUTOPREFIXER NO MINIFY
+build-dev: rm-cache rm-dist
+	npx parcel build --no-cache --no-optimize --no-source-maps --public-url ./
 
-build-dev: rm-dist
-	npx parcel build src/*.html --dist-dir dist/ --no-optimize --no-cache --public-url ./
+# NO AUTOPREFIXER
+build-prod: rm-cache rm-dist
+	npx parcel build --no-cache --public-url ./
 
-build-prod: rm-dist
-	npx parcel build src/*.html --dist-dir dist/ --no-cache --public-url ./
-
+# WITH AUTOPREFIXER
+build: build-prod prefixer
 

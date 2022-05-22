@@ -1,15 +1,14 @@
-plugins:
-  - jest
 env:
   browser: true
   es2021: true
-  jest: true
 extends:
   - airbnb-base
-  - plugin:jest/recommended
+parser: '@typescript-eslint/parser'
 parserOptions:
-  ecmaVersion: 13
+  ecmaVersion: latest
   sourceType: module
+plugins:
+  - '@typescript-eslint'
 rules: {
   "no-console": 0
 }
