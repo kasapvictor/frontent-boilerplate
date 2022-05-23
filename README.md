@@ -57,3 +57,6 @@ make build
 # Показывает все ошибки в коде которые надо исправить
 make lint
 ```
+
+### Ссылки
+ - [ParcelJS](https://parceljs.org/getting-started/webapp)
