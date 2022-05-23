@@ -34,12 +34,15 @@ settings:
         - ".tsx"
 
 rules:
-  "no-console": 0
+  "no-console":
+    - "warn"
   "import/extensions": 0
   "no-restricted-exports": 0
   "import/prefer-default-export": 0
+  "@typescript-eslint/no-unused-vars":
+    - "error"
   "@typescript-eslint/semi":
-    - "warn"
+    - "error"
   "@typescript-eslint/no-empty-interface":
     - "error"
     - "allowSingleExtends": true
