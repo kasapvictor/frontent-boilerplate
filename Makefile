@@ -1,14 +1,8 @@
-npm-setup:
+setup:
 	npm install
 
-npm-ci:
+ci:
 	npm ci
-
-yarn-install:
-	yarn install
-
-yarn-ci:
-	yarn install --frozen-lockfile
 
 rm-cache:
 	npx rimraf ./.parcel-cache
@@ -37,9 +31,9 @@ build-dev: rm-cache rm-dist
 	npx parcel build --no-cache --no-optimize --no-source-maps --public-url ./
 
 # NO AUTOPREFIXER
-build-prod: rm-cache rm-dist
+build-prod: rm-cache rm-dist pretty lint
 	npx parcel build --no-cache --public-url ./
 
 # WITH AUTOPREFIXER
-build: build-prod prefixer
+build: pretty lint build-prod prefixer
 
