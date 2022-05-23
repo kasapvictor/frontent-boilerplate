@@ -1,11 +1,11 @@
 {
   "name": "parcel-2",
   "version": "1.0.0",
+  "author": "Victor Kasap",
+  "license": "ISC",
   "source": [
     "./src/index.html"
   ],
-  "author": "Victor Kasap",
-  "license": "ISC",
   "scripts": {
     "clear": "rimraf dist",
     "server": "parcel --port 4444 --dist-dir development",
