@@ -1,3 +1,20 @@
+# Start
+
+```bash
+# запуск контейнера
+make up
+
+# остановка контейреа
+make down
+```
+[![asciicast](https://asciinema.org/a/iiCw5HTDtiik6H4NWKkJiWJ5u.svg)](https://asciinema.org/a/iiCw5HTDtiik6H4NWKkJiWJ5u)
+
+```bash
+# терминал контейнера
+make bash
+```
+[![asciicast](https://asciinema.org/a/ejQBVQv08k0a7Ngk3LR8UNeI3.svg)](https://asciinema.org/a/ejQBVQv08k0a7Ngk3LR8UNeI3)
+
 # !
 > Перед каждй сборкой проекта происходит проверка ESLint, 
 > в консоле не должно быть ошибок <code style="color:red">"error"</code> 

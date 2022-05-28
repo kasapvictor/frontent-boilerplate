@@ -1,3 +1,4 @@
+# Docker commands
 up:
 	docker-compose up
 
@@ -7,6 +8,7 @@ down:
 bash:
 	docker exec -it frontend bash
 
+# NPM commands
 setup:
 	npm install
 
