@@ -11,4 +11,4 @@ services:
       - "./:/app"
     ports:
       - "4444:4444"
-    command: sh -c "npm install && npm run server"
+    command: sh -c "npm install -g npm@8.11.0 && npm install && npm run server"
