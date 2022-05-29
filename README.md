@@ -5,19 +5,29 @@
 # Start
 
 ```bash
+# билд контейнера, запускать один раз при установке
+make build
+```
+[![asciicast](https://asciinema.org/a/xQ5e8wC0A2GFSVxFqlkR9nqFf.svg)](https://asciinema.org/a/xQ5e8wC0A2GFSVxFqlkR9nqFf)
+
+```bash
 # запуск контейнера
 make up
-
-# остановка контейреа
-make down
 ```
 [![asciicast](https://asciinema.org/a/iiCw5HTDtiik6H4NWKkJiWJ5u.svg)](https://asciinema.org/a/iiCw5HTDtiik6H4NWKkJiWJ5u)
 
 ```bash
-# терминал контейнера
+# остановка контейреа
+make down
+```
+
+```bash
+# терминал контейнера, выйти из терминала - exit
 make bash
 ```
 [![asciicast](https://asciinema.org/a/ejQBVQv08k0a7Ngk3LR8UNeI3.svg)](https://asciinema.org/a/ejQBVQv08k0a7Ngk3LR8UNeI3)
+
+----
 
 # !
 > Перед каждй сборкой проекта происходит проверка ESLint, 
@@ -44,7 +54,7 @@ make build-prod
 
 ```bash
 # Билд прод версия с автопрефиксами для стилей
-make build
+make build-prefix
 ```
 
 ### Утилиты

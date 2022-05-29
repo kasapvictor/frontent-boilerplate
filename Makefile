@@ -1,4 +1,7 @@
-# Docker commands
+################ Docker commands ################
+build:
+	docker-compose build
+
 up:
 	docker-compose up
 
@@ -6,14 +9,20 @@ down:
 	docker-compose down
 
 bash:
-	docker exec -it frontend bash
+	docker exec -it webapp bash
 
-# NPM commands
+dev-build-dev:
+	docker exec -it webapp sh -c 'make build-dev'
+
+dev-build-prod:
+	docker exec -it webapp sh -c 'make build-prod'
+
+dev-build-prefix:
+	docker exec -it webapp sh -c 'make build-prefix'
+
+################ NPM commands ################
 setup:
 	npm install
-
-ci:
-	npm ci
 
 rm-cache:
 	npx rimraf ./.parcel-cache
@@ -46,5 +55,5 @@ build-prod: rm-cache rm-dist pretty lint
 	npx parcel build --no-cache --public-url ./
 
 # WITH AUTOPREFIXER
-build: pretty lint build-prod prefixer
+build-prefix: pretty lint build-prod prefixer
 
