@@ -44,17 +44,17 @@ make bash
 
 ```bash
 # Билд дев версия
-make build-dev
+make dev-build-dev
 ```
 
 ```bash
 # Билд прод версия без автопрефиксов для стилей
-make build-prod
+make dev-build-prod
 ```
 
 ```bash
 # Билд прод версия с автопрефиксами для стилей
-make build-prefix
+make dev-build-prefix
 ```
 
 ### Утилиты
@@ -62,7 +62,7 @@ make build-prefix
 ```bash
 # Запуск линтера. 
 # Показывает все ошибки в коде которые надо исправить
-make lint
+make dev-lint
 ```
 
 ### Ссылки

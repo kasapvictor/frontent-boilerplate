@@ -20,6 +20,9 @@ dev-build-prod:
 dev-build-prefix:
 	docker exec -it webapp sh -c 'make build-prefix'
 
+dev-lint:
+	docker exec -it webapp sh -c 'npx eslint --fix ./src/scripts'
+
 ################ NPM commands ################
 setup:
 	npm install
@@ -32,9 +35,6 @@ rm-dist:
 
 rm-development:
 	npx rimraf ./development
-
-lint:
-	npx eslint --fix ./src/scripts
 
 pretty:
 	npx prettier --write ./src/scss && npx prettier --write ./src/scripts
@@ -51,9 +51,9 @@ build-dev: rm-cache rm-dist
 	npx parcel build --no-cache --no-optimize --no-source-maps --public-url ./
 
 # NO AUTOPREFIXER
-build-prod: rm-cache rm-dist pretty lint
+build-prod: rm-cache rm-dist pretty dev-lint
 	npx parcel build --no-cache --public-url ./
 
 # WITH AUTOPREFIXER
-build-prefix: pretty lint build-prod prefixer
+build-prefix: pretty dev-lint build-prod prefixer
 
