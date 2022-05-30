@@ -11,7 +11,7 @@ services:
     restart: always
 
     volumes:
-      - "./:/app"
+      - "./:/home/app"
 
     ports:
       - ${PORT}:${PORT}
