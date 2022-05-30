@@ -14,6 +14,6 @@ RUN export DOCKER_SCAN_SUGGEST=false
 
 COPY . .
 
-EXPOSE 4444
+EXPOSE ${PORT}
 
 CMD npm install && npm run server

@@ -3,7 +3,7 @@ import '../scss/styles.scss';
 import { Button } from './components';
 import HomePage from './pages/home';
 
-Button({ containerName: 'container__button', text: 'My Button!' });
+Button({ containerName: 'container__button', text: 'My Button!!' });
 
 HomePage();
 
