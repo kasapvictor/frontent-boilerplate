@@ -7,11 +7,11 @@
     "./src/index.html"
   ],
   "scripts": {
-    "clear": "rimraf dist",
+    "clear": "rimraf dist && rimraf .parcel-cache",
     "server": "parcel --port 4444 --dist-dir development",
     "prefixer": "postcss ./dist/css/*.css -p -d ./dist/css -m",
     "build:dev": "npm run clear && parcel build --no-cache --no-optimize --no-source-maps --public-url ./",
-    "build:prod": "npm run clear && clear && parcel build --no-cache --public-url ./ && npm run prefixer"
+    "build:prod": "npm run clear && parcel build --no-cache --public-url ./ && npm run prefixer"
   },
   "devDependencies": {
     "@parcel/optimizer-cssnano": "^2.5.0",

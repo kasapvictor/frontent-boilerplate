@@ -4,10 +4,10 @@
 #     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
 
 # Node artifact files
-node_modules/
-dist/
-development/
-.parcel-cache/
+app/node_modules/
+app/dist/
+app/development/
+app/.parcel-cache/
 
 # Compiled Java class files
 *.class

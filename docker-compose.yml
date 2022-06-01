@@ -10,8 +10,14 @@ services:
 
     restart: always
 
+    stdin_open: true
+
+    tty: true
+
+#    command: "npm install"
+
     volumes:
-      - "./:/home/app"
+      - "./app:/home/app"
 
     ports:
       - ${PORT}:${PORT}

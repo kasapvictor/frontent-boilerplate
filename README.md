@@ -1,69 +1,169 @@
 ### Подготовка (Windows)
-- Уствновить [Git BASH](https://gitforwindows.org) далее открыть терминал git bash
-- Установить make в терминале git bash ```choco install make```
+1. Уствновить [Docker](https://www.docker.com/get-started/)
+2. Уствновить [Git BASH](https://gitforwindows.org) далее открыть терминал git bash 
+3. Установить make в терминале git bash выполнить команду ```choco install make```
+4. Открыть папку с проектом в терминале git bash
 
-# Start
 
+
+## Создание образа и контейнера
+
+### Образ
 ```bash
-# билд контейнера, запускать один раз при установке
 make build
-```
-[![asciicast](https://asciinema.org/a/xQ5e8wC0A2GFSVxFqlkR9nqFf.svg)](https://asciinema.org/a/xQ5e8wC0A2GFSVxFqlkR9nqFf)
 
+# или выполнить команду 
+# docker-compose build
+```
+[![asciicast](https://asciinema.org/a/8ceLqSVqB4VvB68hlivoOQAPh.svg)](https://asciinema.org/a/8ceLqSVqB4VvB68hlivoOQAPh)
+
+### Запуск контейнера на базе образа
+После выполнения команды терминал продолжит работать уже внутри созданного контейнера
 ```bash
-# запуск контейнера
 make up
-```
-[![asciicast](https://asciinema.org/a/iiCw5HTDtiik6H4NWKkJiWJ5u.svg)](https://asciinema.org/a/iiCw5HTDtiik6H4NWKkJiWJ5u)
 
+# или выполнить команду
+# docker-compose up -d; docker exec -it webapp zsh || winpty docker exec -it webapp zsh
+```
+[![asciicast](https://asciinema.org/a/PhFBstDo8t0IQpwxMxghcqlht.svg)](https://asciinema.org/a/PhFBstDo8t0IQpwxMxghcqlht)
+
+### Внимание!
+Если закрылся терминал контейнера и нужно в него сново попасть, то выполнить эту команду
 ```bash
-# остановка контейреа
+docker exec -it webapp zsh || winpty docker exec -it webapp zsh
+```
+
+### Выключить контейнер
+Выполняется в терминале машины, не контейнера
+```bash
 make down
-```
 
-```bash
-# терминал контейнера, выйти из терминала - exit
-make bash
+# или выполнить команду
+# docker-compose down
 ```
-[![asciicast](https://asciinema.org/a/ejQBVQv08k0a7Ngk3LR8UNeI3.svg)](https://asciinema.org/a/ejQBVQv08k0a7Ngk3LR8UNeI3)
 
 ----
 
-# !
-> Перед каждй сборкой проекта происходит проверка ESLint, 
-> в консоле не должно быть ошибок <code style="color:red">"error"</code> 
-> или уведомлений <code style="color:gold">"warning"</code> от ESLint.
-> 
-> _Есть ошибки в коде_
-> [![asciicast](https://asciinema.org/a/ZEQntepzVe6q8ydUkE5DV4wTb.svg)](https://asciinema.org/a/ZEQntepzVe6q8ydUkE5DV4wTb)
-> 
-> _Нет ошибок в коде_
-> [![asciicast](https://asciinema.org/a/v9dBV9U7zmkOfJNPksKHLyjhx.svg)](https://asciinema.org/a/v9dBV9U7zmkOfJNPksKHLyjhx)
+## Команды для работы со сборщиком
 
-### Команды Makefile
-
+### 1. Установка пакетов
+Выполняется внутри терминала контейнера
 ```bash
-# Билд дев версия
-make dev-build-dev
+make install
+
+# или выполнить команду
+# npm install
 ```
 
+### 2. Запуск сервера
+Выполняется внутри терминала контейнера
 ```bash
-# Билд прод версия без автопрефиксов для стилей
-make dev-build-prod
+make server
+
+# или выполнить команду
+# npx parcel --port 4444 --dist-dir development
+# остановка сервера - Ctr+C
 ```
 
+### 3. Сборка билда без оптимизаций и autoprefixer
+Выполняется внутри терминала контейнера
 ```bash
-# Билд прод версия с автопрефиксами для стилей
-make dev-build-prefix
+make build-dev
+
+# или выполнить команду
+# npm run clear && npx parcel build --no-cache --no-optimize --no-source-maps --public-url ./
+```
+
+### 4. Сборка билда без использования autoprefixer
+Выполняется внутри терминала контейнера
+> При сборке проверяются все ошибки ESLint, если есть ошибки, то сборка не произойдет
+```bash
+make build-prod
+
+# или выполнить команду
+# npm run clear && npx prettier --write ./src/scss && npx prettier --write ./src/scripts && npx eslint --fix ./src/scripts && npx parcel build --no-cache --public-url ./
+```
+
+Пример:
+```css
+.example {
+    background: linear-gradient(#fff, #000);
+    display: -ms-grid;
+    display: grid;
+    -o-transition: all .5s;
+    transition: all .5s;
+    -webkit-user-select: none;
+    user-select: none
+}
+```
+
+### 5. Сборка билда c использованием autoprefixer
+> При сборке проверяются все ошибки ESLint, если есть ошибки, то сборка не произойдет
+Выполняется внутри терминала контейнера
+```bash
+make build-prefix
+
+# или выполнить команду
+# npm run clear && npx prettier --write ./src/scss && npx prettier --write ./src/scripts && npx eslint --fix ./src/scripts && npx parcel build --no-cache --public-url ./ && npm run prefixer
+```
+
+Пример:
+```css
+.example {
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#000));
+    background: -o-linear-gradient(#fff, #000);
+    background: linear-gradient(#fff, #000);
+    display: -ms-grid;
+    display: grid;
+    -o-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
 ```
 
 ### Утилиты
-
+Запуск линтера. Показывает все ошибки в коде которые надо исправить
 ```bash
-# Запуск линтера. 
-# Показывает все ошибки в коде которые надо исправить
 make dev-lint
+
+# или выполнить команду
+# npx eslint --fix ./src/scripts
 ```
 
+# !
+> Перед каждй сборкой проекта происходит проверка ESLint,
+> в консоле не должно быть ошибок <code style="color:red">"error"</code>
+> или уведомлений <code style="color:gold">"warning"</code> от ESLint.
+
+```bash
+# Пример ошибок если в продакшен коде есть console.log(...);
+ 
+/home/app/src/scripts/index.ts
+10:1  error  Unexpected console statement  no-console
+
+/home/app/src/scripts/pages/home.ts
+5:5  error  Unexpected console statement  no-console
+7:5  error  Unexpected console statement  no-console
+18:3  error  Unexpected console statement  no-console
+21:3  error  Unexpected console statement  no-console
+24:3  error  Unexpected console statement  no-console
+
+✖ 6 problems (6 errors, 0 warnings)
+
+make: *** [Makefile:18: lint] Error 1
+```
+> [![asciicast](https://asciinema.org/a/ZEQntepzVe6q8ydUkE5DV4wTb.svg)](https://asciinema.org/a/ZEQntepzVe6q8ydUkE5DV4wTb)
+
+
+> Если нет ошибок в коде
+> 
+> [![asciicast](https://asciinema.org/a/v9dBV9U7zmkOfJNPksKHLyjhx.svg)](https://asciinema.org/a/v9dBV9U7zmkOfJNPksKHLyjhx)
+
 ### Ссылки
- - [ParcelJS](https://parceljs.org/getting-started/webapp)
+- [ParcelJS](https://parceljs.org/getting-started/webapp)
+- [Docker](https://www.docker.com/get-started/)
+- [Git BASH](https://gitforwindows.org)
