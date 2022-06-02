@@ -7,8 +7,7 @@
     "default": {
       "source": [
         "./src/index.html",
-        "./src/about.html",
-        "./src/js/about.ts"
+        "./src/about.html"
       ]
     }
   },
@@ -16,7 +15,7 @@
     "clear": "rimraf dist && rimraf .parcel-cache",
     "server": "parcel --port 4444 --dist-dir development",
     "prefixer": "postcss ./dist/css/*.css -p -d ./dist/css -m",
-    "build:dev": "npm run clear && parcel build --no-cache --no-optimize --no-source-maps --public-url ./",
+    "build:dev": "npm run clear && parcel build --no-cache --no-content-hash --no-optimize --no-source-maps --public-url ./",
     "build:prod": "npm run clear && parcel build --no-cache --public-url ./ && npm run prefixer"
   },
   "devDependencies": {
@@ -49,11 +48,10 @@
   "parcel-namer-rewrite": {
     "chain": "@parcel/namer-default",
     "rules": {
-      "./src/js/about.ts": "js/about.js",
-      "(.*)\\.(woff2?|ttf)": "fonts/$1.$2",
-      "(.*)\\.(svg|png|gif|jpg|jpeg)": "img/$1.$2",
-      "(.*)\\.(css)": "css/styles.$2",
-      "(.*)\\.(js)": "js/$1.{hash}.$2"
+      "(.*)\\.(woff2?|ttf)": "fonts/$1{~hash}.$2",
+      "(.*)\\.(svg|png|gif|jpg|jpeg)": "img/$1{~hash}.$2",
+      "(.*)\\.(css)": "css/$1{~hash}.$2",
+      "(.*)\\.(js)": "js/$1{~hash}.$2"
     }
   },
   "posthtml": {
