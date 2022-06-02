@@ -3,9 +3,15 @@
   "version": "1.0.0",
   "author": "Victor Kasap",
   "license": "ISC",
-  "source": [
-    "./src/index.html"
-  ],
+  "targets": {
+    "default": {
+      "source": [
+        "./src/index.html",
+        "./src/about.html",
+        "./src/js/about.ts"
+      ]
+    }
+  },
   "scripts": {
     "clear": "rimraf dist && rimraf .parcel-cache",
     "server": "parcel --port 4444 --dist-dir development",
@@ -41,7 +47,9 @@
     "on-change": "^4.0.0"
   },
   "parcel-namer-rewrite": {
+    "chain": "@parcel/namer-default",
     "rules": {
+      "./src/js/about.ts": "js/about.js",
       "(.*)\\.(woff2?|ttf)": "fonts/$1.$2",
       "(.*)\\.(svg|png|gif|jpg|jpeg)": "img/$1.$2",
       "(.*)\\.(css)": "css/styles.$2",

@@ -1,5 +1,5 @@
 ################ NPM commands ################
-setup:
+install:
 	npm install
 
 rm-cache:
@@ -12,10 +12,10 @@ rm-development:
 	npx rimraf ./development
 
 pretty:
-	npx prettier --write ./src/scss && npx prettier --write ./src/scripts
+	npx prettier --write ./src/scss && npx prettier --write ./src/js
 
 lint:
-	npx eslint --fix ./src/scripts
+	npx eslint --fix ./src/js
 
 prefixer:
 	npx postcss ./dist/css/*.css -p -d ./dist/css -m
