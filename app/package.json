@@ -11,6 +11,7 @@
       ]
     }
   },
+
   "scripts": {
     "clear": "rimraf dist && rimraf .parcel-cache",
     "server": "parcel --port 4444 --dist-dir development",
@@ -18,6 +19,7 @@
     "build:dev": "npm run clear && parcel build --no-cache --no-content-hash --no-optimize --no-source-maps --public-url ./",
     "build:prod": "npm run clear && parcel build --no-cache --public-url ./ && npm run prefixer"
   },
+
   "devDependencies": {
     "@parcel/optimizer-cssnano": "^2.5.0",
     "@parcel/transformer-sass": "^2.5.0",
