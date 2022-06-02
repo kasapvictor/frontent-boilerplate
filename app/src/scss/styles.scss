@@ -1,0 +1,30 @@
+/* UTILS */
+//@import "utils/fonts";
+//@import "utils/vars";
+//@import "utils/reset";
+//@import "utils/placeholders";
+//@import "utils/mixins";
+
+//body {
+//  background-color: #ccc;
+//}
+//
+//h1 {
+//  color: hotpink;
+//  font-family: cursive;
+//}
+//
+//#app {
+//  display: flex;
+//}
+
+.example {
+  display: grid;
+  transition: all 0.5s;
+  user-select: none;
+  background: linear-gradient(to bottom, white, black);
+}
+
+.div {
+  background-image: url('../images/image.jpeg');
+}

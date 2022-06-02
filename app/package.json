@@ -1,0 +1,95 @@
+{
+  "name": "parcel-2",
+  "version": "1.0.0",
+  "author": "Victor Kasap",
+  "license": "ISC",
+  "targets": {
+    "default": {
+      "source": [
+        "./src/index.html",
+        "./src/about.html"
+      ]
+    }
+  },
+
+  "scripts": {
+    "clear": "rimraf dist && rimraf .parcel-cache",
+    "server": "parcel --port 4444 --dist-dir development",
+    "prefixer": "postcss ./dist/css/*.css -p -d ./dist/css -m",
+    "build:dev": "npm run clear && parcel build --no-cache --no-content-hash --no-optimize --no-source-maps --public-url ./",
+    "build:prod": "npm run clear && parcel build --no-cache --public-url ./ && npm run prefixer"
+  },
+
+  "devDependencies": {
+    "@parcel/optimizer-cssnano": "^2.5.0",
+    "@parcel/transformer-sass": "^2.5.0",
+    "@parcel/transformer-typescript-tsc": "^2.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
+    "autoprefixer": "^10.4.7",
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "parcel": "^2.5.0",
+    "parcel-namer-rewrite": "^2.0.0-rc.2",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^9.1.0",
+    "postcss-preset-env": "^7.6.0",
+    "posthtml-include": "^1.7.4",
+    "prettier": "^2.4.0",
+    "rimraf": "^3.0.2",
+    "sharp": "^0.29.3",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "axios": "^0.26.0",
+    "dotenv": "^16.0.0",
+    "lodash": "^4.17.21",
+    "on-change": "^4.0.0"
+  },
+  "parcel-namer-rewrite": {
+    "chain": "@parcel/namer-default",
+    "rules": {
+      "(.*)\\.(woff2?|ttf)": "fonts/$1{~hash}.$2",
+      "(.*)\\.(svg|png|gif|jpg|jpeg)": "img/$1{~hash}.$2",
+      "(.*)\\.(css)": "css/$1{~hash}.$2",
+      "(.*)\\.(js)": "js/$1{~hash}.$2"
+    }
+  },
+  "posthtml": {
+    "plugins": {
+      "posthtml-include": {}
+    }
+  },
+  "htmlnano": {
+    "collapseAttributeWhitespace": false,
+    "collapseBooleanAttributes": false,
+    "collapseWhitespace": false,
+    "removeComments": false,
+    "minifyJson": false,
+    "minifySvg": false
+  },
+  "cssnano": {
+    "preset": [
+      "default",
+      {
+        "minifyFontValues": {
+          "removeQuotes": false
+        },
+        "normalizeUrl": false
+      }
+    ]
+  },
+  "sharp": {
+    "jpeg": {
+      "quality": 30,
+      "chromaSubsampling": "4:4:4"
+    },
+    "webp": {
+      "nearLossless": true
+    },
+    "png": {
+      "palette": true
+    }
+  }
+}

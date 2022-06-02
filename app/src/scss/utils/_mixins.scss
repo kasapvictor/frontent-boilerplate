@@ -1,0 +1,81 @@
+@mixin font($size: $font-size-s, $height: inherit, $weight: inherit) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+}
+
+@mixin columns($width) {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  > * {
+    flex-basis: $width;
+  }
+}
+
+@mixin background($url, $size: cover, $position: center, $repeat: no-repeat) {
+  background-image: url($url);
+  background-size: $size;
+  background-position: $position;
+  background-repeat: $repeat;
+}
+
+@mixin media-desktop-x {
+  @media (max-width: $desktop-x) {
+    @content;
+  }
+}
+
+@mixin media-tablet-x {
+  @media (max-width: $tablet-x) {
+    @content;
+  }
+}
+
+@mixin media-desktop-m {
+  @media (max-width: $desktop-m) {
+    @content;
+  }
+}
+
+@mixin media-desktop-s {
+  @media (max-width: $desktop-s) {
+    @content;
+  }
+}
+
+@mixin media-tablet-x {
+  @media (max-width: $tablet-x) {
+    @content;
+  }
+}
+
+@mixin media-tablet-m {
+  @media (max-width: $tablet-m) {
+    @content;
+  }
+}
+
+@mixin media-tablet-s {
+  @media (max-width: $tablet-s) {
+    @content;
+  }
+}
+
+@mixin media-mobile-x {
+  @media (max-width: $mobile-x) {
+    @content;
+  }
+}
+
+@mixin media-mobile-m {
+  @media (max-width: $mobile-m) {
+    @content;
+  }
+}
+
+@mixin media-mobile-s {
+  @media (max-width: $mobile-s) {
+    @content;
+  }
+}
