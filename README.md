@@ -167,3 +167,5 @@ make: *** [Makefile:18: lint] Error 1
 - [ParcelJS](https://parceljs.org/getting-started/webapp)
 - [Docker](https://www.docker.com/get-started/)
 - [Git BASH](https://gitforwindows.org)
+
+---
