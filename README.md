@@ -9,3 +9,5 @@ make down
 
 make bash
 ```
+
+Browser-sync options: https://browsersync.io/docs/options

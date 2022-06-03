@@ -1,6 +1,6 @@
 ################ Docker commands ################
 build:
-	docker-compose build
+	docker-compose build --no-cache
 
 up:
 	docker-compose up -d; docker exec -it webapp zsh || winpty docker exec -it webapp zsh
