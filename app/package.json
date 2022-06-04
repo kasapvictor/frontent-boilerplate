@@ -13,8 +13,6 @@
     "@babel/core": "^7.17.5",
     "@babel/eslint-parser": "^7.15.4",
     "@babel/preset-env": "^7.16.11",
-    "@principalstudio/html-webpack-inject-preload": "^1.2.7",
-    "@vue/preload-webpack-plugin": "^2.0.0",
     "autoprefixer": "^10.4.2",
     "babel-jest": "^27.1.1",
     "babel-loader": "^8.2.3",

@@ -1,8 +1,5 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const PreloadWebpackPlugin = require('@vue/preload-webpack-plugin');
-const HtmlWebpackInjectPreload = require('@principalstudio/html-webpack-inject-preload');
-
 
 const path = require('path');
 const mode = process.env.NODE_ENV;
