@@ -1,4 +1,6 @@
-FROM node:18
+FROM node
+
+ENV CHOKIDAR_USEPOLLING=true
 
 WORKDIR /home/app
 
