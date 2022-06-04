@@ -1,5 +1,8 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const PreloadWebpackPlugin = require('@vue/preload-webpack-plugin');
+const HtmlWebpackInjectPreload = require('@principalstudio/html-webpack-inject-preload');
+
 
 const path = require('path');
 const mode = process.env.NODE_ENV;
@@ -11,18 +14,18 @@ module.exports = {
 	devtool: 'source-map',
 	
 	entry: {
-		index: path.resolve(__dirname, './src/scripts/index.js'),
+		index: path.resolve(__dirname, './src/js/index.js'),
 	},
 	
 	output: {
-		filename: `scripts/[name]${isDevMode ? '.[contenthash:6]' : ''}.js`,
+		filename: `js/[name]${isDevMode ? '.[contenthash:6]' : ''}.js`,
 		clean: true,
 	},
 	
 	devServer: {
 		hot: true,
 		port: 9000,
-		static: './dist',
+		static: './src',
 		watchFiles: ['./src/**/*',],
 	},
 	module: {
@@ -56,7 +59,7 @@ module.exports = {
 				test: /\.(png|jpg|jpeg|gif|webp)$/i,
 				type: 'asset/resource',
 				generator: {
-					filename: `images/[name]${isDevMode ? '.[contenthash:6]' : ''}[ext]`,
+					filename: `img/[name]${isDevMode ? '.[contenthash:6]' : ''}[ext]`,
 				},
 			},
 			// SVG
@@ -89,10 +92,10 @@ module.exports = {
 			filename: `styles/styles${isDevMode ? '.[contenthash:6]' : ''}.css`,
 		}),
 		new HtmlWebpackPlugin({
-			favicon: "./src/images/256x256.png",
-			template: './src/index.pug',
+			favicon: "./src/img/256x256.png",
+			// template: './src/index.pug',
+			template: './src/index.html',
 			inject: 'body',
 		})
 	],
 };
-

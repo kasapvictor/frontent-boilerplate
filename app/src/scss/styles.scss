@@ -3,6 +3,15 @@
 @import 'utils/vars';
 @import 'utils/common';
 
+/* LAYOUTS */
+@import 'layouts/container';
+
 /* COMPONENTS */
 
-/* LAYOUTS */
+.image {
+  background-image: url('../img/image.jpeg');
+  width: 300px;
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+}

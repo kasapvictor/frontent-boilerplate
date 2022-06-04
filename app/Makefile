@@ -11,10 +11,10 @@ test:
 	npm test
 
 pretty:
-	npx prettier --write ./src/scss && npx prettier --write ./src/scripts
+	npx prettier --write ./src/scss && npx prettier --write ./src/js
 
 lint:
-	npx eslint --fix ./src/scripts
+	npx eslint --fix ./src/js
 
 build: rm-dist pretty lint
 	NODE_ENV=production npx webpack
