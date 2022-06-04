@@ -1,8 +1,9 @@
-version: '3'
+version: '3.9'
 
 services:
   web:
-    build: .
+    build:
+      context: .
 
     image: ${IMAGE_NAME}
 
@@ -15,7 +16,9 @@ services:
     tty: true
 
     volumes:
-      - "./app:/home/app"
+#      - ./app:/home/app
+      - $PWD/app:/home/app
+#      - $PWD\app:/home/app"
 
     ports:
       - ${PORT}:${PORT}

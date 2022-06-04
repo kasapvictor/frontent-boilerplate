@@ -10,7 +10,6 @@ Button({ containerName: 'container__button', text: 'My Button!!' });
 
 HomePage();
 
-// eslint-disable-next-line no-console
 console.log('check eslint');
 
 const imgFomrJs = document.querySelector('.image-from-js');

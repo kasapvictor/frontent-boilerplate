@@ -8,12 +8,18 @@ docker-compose.yml
 
 Dockerfile
 
+.dockerignore
+
 .gitignore
 
-.DS_Store
+**/.DS_Store
 
 README.md
 
 .idea/
 
 .git/
+
+.env
+
+*.dist
