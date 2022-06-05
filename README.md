@@ -30,7 +30,11 @@ make up
 ### Внимание!
 Если закрылся терминал контейнера и нужно в него сново попасть, то выполнить эту команду
 ```bash
-docker exec -it webapp zsh || winpty docker exec -it webapp zsh
+# для MacOS или Linux
+docker exec -it webapp zsh
+
+# для Windows
+winpty docker exec -it webapp zsh
 ```
 
 ### Выключить контейнер
