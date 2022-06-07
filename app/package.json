@@ -1,8 +1,15 @@
 {
-  "name": "browser-sync",
-  "author": "Victor Kasap",
-  "license": "ISC",
+  "name": "vite-project",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build-dev": "rm -rf .cache && tsc && vite build --minify false",
+    "build-prod": "rm -rf .cache && tsc && vite build",
+    "preview": "vite preview"
+  },
   "devDependencies": {
-    "browser-sync": "^2.27.9"
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9"
   }
 }

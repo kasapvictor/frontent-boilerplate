@@ -1,5 +1,14 @@
 install:
 	nmp install
 
-server:
-	NODE_ENV=development node server.js
+rm-cache:
+	rm -rf dist
+
+server: rm-cache
+	npx vite
+
+build-dev: rm-cache
+	npx tsc && npx vite build --minify false
+
+build-prod: rm-cache
+	npx tsc && npx vite build
