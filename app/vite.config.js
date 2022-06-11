@@ -57,5 +57,4 @@ export default defineConfig(() => ({
   
 }));
 
-// https://youtu.be/L23bAMdgOZA
 // https://vitejs.dev/config

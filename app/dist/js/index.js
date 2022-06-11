@@ -40,7 +40,7 @@ const p = function polyfill() {
   }
 };
 p();
-var styles = /* @__PURE__ */ (() => ":root {\n  --color1: #2c3e50;\n  --color2: tomato;\n}\n\n#app, #app1, #app2 {\n  font-family: Avenir, Helvetica, Arial, sans-serif;\n  text-align: center;\n  color: var(--color2);\n  margin-top: 60px;\n  display: grid;\n  transition: all 0.5s;\n  user-select: none;\n  background: linear-gradient(to bottom, white, black);\n}")();
+var styles = /* @__PURE__ */ (() => ":root {\n  --color1: #2c3e50;\n  --color2: tomato;\n}\n\n#app, #app1, #app2 {\n  font-family: Avenir, Helvetica, Arial, sans-serif;\n  text-align: center;\n  color: tomato;\n  color: var(--color2);\n  margin-top: 60px;\n  display: -ms-grid;\n  display: grid;\n  -webkit-transition: all 0.5s;\n  -o-transition: all 0.5s;\n  transition: all 0.5s;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  background: -webkit-gradient(linear, left top, left bottom, from(white), to(black));\n  background: -o-linear-gradient(top, white, black);\n  background: linear-gradient(to bottom, white, black);\n}\n\n.example {\n  display: -ms-grid;\n  display: grid;\n  -webkit-transition: all 0.5s;\n  -o-transition: all 0.5s;\n  transition: all 0.5s;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  background: -webkit-gradient(linear, left top, left bottom, from(white), to(black));\n  background: -o-linear-gradient(top, white, black);\n  background: linear-gradient(to bottom, white, black);\n}")();
 const $ = (selector, scope = document) => {
   return scope.querySelector(selector);
 };
