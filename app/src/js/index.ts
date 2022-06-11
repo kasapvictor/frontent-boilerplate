@@ -1,5 +1,9 @@
 import '../scss/styles.scss'
 
+import { answer } from "./answer";
+
+console.log(`the answer is ${answer()}`);
+
 export const $ = <T>(selector: any, scope = document): T => {
   return scope.querySelector(selector);
 }
