@@ -1,6 +1,6 @@
-import '../css/style.css'
+import '../scss/styles.scss'
 
-const $ = <T>(selector: any, scope = document): T => {
+export const $ = <T>(selector: any, scope = document): T => {
   return scope.querySelector(selector);
 }
 

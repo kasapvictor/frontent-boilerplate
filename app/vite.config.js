@@ -1,37 +1,60 @@
-import { resolve } from 'path';
+import { resolve } from "path";
 import { defineConfig } from "vite";
 
-const mode = process.env.NODE_ENV;
-// const isDevMode = mode === 'development';
-
-// console.log(process.env);
-console.log('MODE:', process.env);
-// console.log(import.meta);
+const isDevMode = process.env.NODE_ENV !== 'production';
 
 export default defineConfig(() => ({
+  base: "./",
+  root: "./src",
+  cacheDir: "../.cache",
   server: {
     port: 4444,
-    host: '0.0.0.0',
+    host: "0.0.0.0",
     watch: {
       usePolling: true
-    },
+    }
   },
-  root: './src',
-  cacheDir: '../.cache',
   build: {
+    emptyOutDir: true,
+    minify: !isDevMode,
     outDir: resolve(__dirname, "dist"),
+    sourcemap: isDevMode ? false : 'inline',
     rollupOptions: {
-      input: {
-        index: resolve(__dirname, 'src/index.html'),
-        page1: resolve(__dirname, 'src/page1.html'),
-        page2: resolve(__dirname, 'src/pages/page2.html')
+      output: {
+        entryFileNames: "index.js",
+        chunkFileNames: "js/[name].js",
+        assetFileNames: ({ name }) => {
+          if (/\.css$/i.test(name ?? "")) {
+            return "css/styles.css";
+          }
+
+          if (/\.(png|jpe?g|gif|webp)$/i.test(name ?? "")) {
+            return "images/[name][extname]";
+          }
+
+          if (/\.(svg)$/i.test(name ?? "")) {
+            return "svg/[name][extname]";
+          }
+
+          if (/\.(woff(2)?|ttf|eot)$/i.test(name ?? "")) {
+            return "fonts/[name][extname]";
+          }
+
+          // default value
+          // ref: https://rollupjs.org/guide/en/#outputassetfilenames
+          return "[ext]/[name][extname]";
+        }
       },
-      // input: ['./src/index.html', './src/page1.html'],
-    },
-    // minify: isDevMode
-    // sourcemap: true
-    emptyOutDir: true
-  }
+      input: [
+        resolve(__dirname, "src/index.html"),
+        resolve(__dirname, "src/page1.html")
+      ],
+    }
+  },
+  css: {
+    devSourcemap: true,
+  },
+  
 }));
 
 // https://youtu.be/L23bAMdgOZA

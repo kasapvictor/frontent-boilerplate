@@ -5,7 +5,7 @@
 
 # Node artifact files
 app/node_modules/
-app/dist/
+app/dist1/
 app/development/
 app/.parcel-cache/
 
