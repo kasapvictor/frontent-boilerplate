@@ -13,9 +13,35 @@
     "@babel/eslint-parser": "^7.15.4",
     "@babel/preset-env": "^7.16.11",
     "@rollup/plugin-babel": "^5.2.2",
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
     "postcss-preset-env": "^7.7.1",
     "sass": "^1.52.3",
-    "typescript": "^4.5.4",
-    "vite": "^2.9.9"
+    "typescript": "^4.6.4",
+    "vite": "^2.9.9",
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "prettier": "^2.4.0"
+  },
+  "dependencies": {
+    "axios": "^0.26.0",
+    "lodash": "^4.17.21",
+    "on-change": "^4.0.0"
+  },
+  "sharp": {
+    "jpeg": {
+      "quality": 30,
+      "chromaSubsampling": "4:4:4"
+    },
+    "webp": {
+      "nearLossless": true
+    },
+    "png": {
+      "palette": true
+    }
+  },
+  "willInstall": {
+    "sharp": "^0.29.3"
   }
 }
