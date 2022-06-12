@@ -28,20 +28,5 @@
     "axios": "^0.26.0",
     "lodash": "^4.17.21",
     "on-change": "^4.0.0"
-  },
-  "sharp": {
-    "jpeg": {
-      "quality": 30,
-      "chromaSubsampling": "4:4:4"
-    },
-    "webp": {
-      "nearLossless": true
-    },
-    "png": {
-      "palette": true
-    }
-  },
-  "willInstall": {
-    "sharp": "^0.29.3"
   }
 }
