@@ -1,8 +1,10 @@
 import '../scss/styles.scss';
+import image3 from '../img/image3.png';
+import stylesModule from './image3.module.scss';
 
-// import { answer } from './answer';
+import { Button } from './components';
 
-// console.log(`the answer is ${answer()}`);
+Button({ containerName: 'container__button', text: 'My Button!!!' });
 
 interface $Params {
   selector: string;
@@ -19,7 +21,7 @@ const app = $({ selector: '#app' });
 if (app) {
   app.innerHTML = `
   <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
+  <a href="https://vitejs.dev/guide/features.html" class="link" target="_blank">Documentation</a>
 `;
 }
 
@@ -35,4 +37,12 @@ if (app2) {
   app2.innerHTML = `
   <h1>Page2</h1>
 `;
+}
+
+const img3 = $({ selector: '#image3' });
+if (img3) {
+  const img = document.createElement('img');
+  img.src = image3;
+  img.className = stylesModule.image3;
+  img3.append(img);
 }

@@ -1,25 +1,27 @@
-:root {
-  --color1: #2c3e50;
-  --color2: tomato;
+@import 'utils/fonts';
+@import 'utils/vars';
+@import 'utils/reset';
+@import 'utils/placeholders';
+@import 'utils/mixins';
+
+@import 'components/links';
+@import 'components/text';
+
+@import 'layout/section';
+@import 'layout/container';
+@import 'layout/columns';
+
+.image1 {
+  width: 200px;
+  height: 100%;
+  object-fit: cover;
 }
 
-#app,
-#app1,
-#app2 {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  text-align: center;
-  color: var(--color2);
-  margin-top: 60px;
-
-  display: grid;
-  transition: all 0.5s;
-  user-select: none;
-  background: linear-gradient(to bottom, white, black);
-}
-
-.example {
-  display: grid;
-  transition: all 0.5s;
-  user-select: none;
-  background: linear-gradient(to bottom, white, black);
+.image2 {
+  width: 200px;
+  height: 200px;
+  background-image: url('../img/image2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }

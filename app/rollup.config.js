@@ -12,7 +12,7 @@ export default {
       }
 
       if (/\.(png|jpe?g|gif|webp)$/i.test(name ?? '')) {
-        return 'images/[name][extname]';
+        return 'img/[name][extname]';
       }
 
       if (/\.(svg)$/i.test(name ?? '')) {

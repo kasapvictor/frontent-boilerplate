@@ -1,0 +1,12 @@
+.link {
+  color: $color7;
+  @extend %transition-2;
+
+  &--active {
+    color: $color4;
+  }
+
+  &:hover {
+    color: $color4;
+  }
+}

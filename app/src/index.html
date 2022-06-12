@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="svg/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="svg/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+</head>
+<body>
+<header class="header">
+
+</header>
+
+
+<main class="main">
+  <div class="container">
     <div id="app"></div>
-    <script type="module" src="./js/index.ts"></script>
-  </body>
+
+    <div class="container__button"></div>
+
+
+    <div class="columns">
+      <div class="col-set-3">
+        <div class="image-wrap">
+          <h2>Image 1 by tag</h2>
+          <img src="./img/image1.jpg" alt="image1" class="image1">
+        </div>
+
+        <div class="image-wrap">
+          <h2 class="h2">Image 2 by background</h2>
+          <div class="image2"></div>
+        </div>
+
+        <div class="image-wrap">
+          <h2>Image 3 by JS</h2>
+          <div id="image3"></div>
+        </div>
+        </div>
+      </div>
+    </div>
+</main>
+
+<footer class="footer">
+
+</footer>
+
+<script type="module" src="./js/index.ts"></script>
+</body>
 </html>

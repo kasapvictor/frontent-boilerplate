@@ -4,10 +4,12 @@
 #     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
 
 # Node artifact files
+app/tsconfig.tsbuildinfo
 app/node_modules/
 app/development/
 app/.cache/
 app/dist/
+
 
 # Compiled Java class files
 *.class

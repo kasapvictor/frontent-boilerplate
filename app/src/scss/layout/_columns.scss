@@ -1,0 +1,15 @@
+.col-set-2 {
+  @include columns(48%);
+}
+
+.col-set-3 {
+  @include columns(30%);
+}
+
+.col-set-4 {
+  @include columns(23%);
+}
+
+.col-set-5 {
+  @include columns(13%);
+}
