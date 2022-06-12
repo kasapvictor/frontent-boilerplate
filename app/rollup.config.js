@@ -1,7 +1,11 @@
-import { resolve } from "path";
-import { getBabelOutputPlugin } from "@rollup/plugin-babel";
+import { resolve } from 'path';
+import { getBabelOutputPlugin } from '@rollup/plugin-babel';
 
 export default {
+  input: [
+    resolve(__dirname, 'src/index.html'),
+    resolve(__dirname, 'src/page1.html')
+  ],
   output: {
     entryFileNames: 'index.js',
     chunkFileNames: 'js/[name].js',
@@ -24,15 +28,11 @@ export default {
       
       return '[ext]/[name][extname]';
     },
-    format: 'esm', // "esm" ||"cjs"
+    format: 'esm' // 'esm' ||'cjs'
   },
-  input: [
-    resolve(__dirname, 'src/index.html'),
-    resolve(__dirname, 'src/page1.html')
-  ],
   plugins: [
     getBabelOutputPlugin({
       presets: ['@babel/preset-env'],
     }),
   ],
-}
+};

@@ -5,9 +5,9 @@
 
 # Node artifact files
 app/node_modules/
-app/dist1/
 app/development/
-app/.parcel-cache/
+app/.cache/
+app/dist/
 
 # Compiled Java class files
 *.class
@@ -52,5 +52,3 @@ Thumbs.db
 .idea
 
 .env
-
-.idea
