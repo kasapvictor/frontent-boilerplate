@@ -1,9 +1,13 @@
-@mixin font($size: $font-size-default, $family: $font-family, $height: 1.5, $space: 0.1rem, $weight: 300) {
-  font-family: $family;
+@mixin font(
+  $size: inherit,
+  $height: inherit,
+  $weight: inherit,
+  $family: inherit
+) {
   font-size: $size;
   font-weight: $weight;
   line-height: $height;
-  letter-spacing: $space;
+  font-family: $family;
 }
 
 @mixin columns($width) {
