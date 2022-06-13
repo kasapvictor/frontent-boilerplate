@@ -28,30 +28,13 @@ export default defineConfig(() => ({
     devSourcemap: true,
   },
   plugins: [
-    // compress({
-    //   exclude: ['js', 'ts', 'json', 'tsx', 'jsx', 'json', 'css', 'scss'],
-    //   extensions: ['jpg', 'jpeg', 'png', 'svg'],
-    //   svgo: {
-    //     removeViewBox: false,
-    //     removeDimensions: true,
-    //   },
-    //   pngquant: {
-    //     speed: 4,
-    //     quality: [0.3, 0.5],
-    //   },
-    //   quality: 5,
-    //   verbose: false,
-    // }),
     vsharp({
-      unlimited: true,
-      includePublic: [],
-      excludePublic: [],
-      exclude: [],
+      includePublic: ['./dist/svg/*.svg'],
       '.jpg': {
-        quality: 45,
+        quality: 35,
       },
       '.jpeg': {
-        quality: 45,
+        quality: 35,
       },
       '.png': {
         quality: 45,
@@ -60,6 +43,7 @@ export default defineConfig(() => ({
       '.webp': {
         lossless: true,
       },
+      '.svg': {},
     }),
   ],
 }));
