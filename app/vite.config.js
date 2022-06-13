@@ -29,7 +29,6 @@ export default defineConfig(() => ({
   },
   plugins: [
     vsharp({
-      includePublic: ['./dist/svg/*.svg'],
       '.jpg': {
         quality: 35,
       },
