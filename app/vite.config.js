@@ -5,6 +5,28 @@ import vsharp from 'vite-plugin-vsharp';
 import rollupConfig from './rollup.config';
 
 const isDevMode = process.env.NODE_ENV !== 'production';
+const vSharp = (devMode) => {
+  if (devMode) {
+    return '';
+  }
+
+  return vsharp({
+    '.jpg': {
+      quality: 35,
+    },
+    '.jpeg': {
+      quality: 35,
+    },
+    '.png': {
+      quality: 45,
+      palette: true,
+    },
+    '.webp': {
+      lossless: true,
+    },
+    '.svg': {},
+  });
+};
 
 export default defineConfig(() => ({
   base: './',
@@ -27,24 +49,7 @@ export default defineConfig(() => ({
   css: {
     devSourcemap: true,
   },
-  plugins: [
-    vsharp({
-      '.jpg': {
-        quality: 35,
-      },
-      '.jpeg': {
-        quality: 35,
-      },
-      '.png': {
-        quality: 45,
-        palette: true,
-      },
-      '.webp': {
-        lossless: true,
-      },
-      '.svg': {},
-    }),
-  ],
+  plugins: [vSharp(isDevMode)],
 }));
 
 // https://vitejs.dev/config

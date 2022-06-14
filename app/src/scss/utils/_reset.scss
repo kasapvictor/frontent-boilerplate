@@ -15,12 +15,7 @@ body {
 }
 
 body {
-  @include font(
-          $size: $font-size-m,
-          $height: 1.5,
-          $weight: $font-weight-3,
-          $family: $font-family
-  );
+  @include font($size: $font-size-m, $height: 1.5, $weight: $font-weight-3, $family: $font-family);
   color: $color1;
 }
 

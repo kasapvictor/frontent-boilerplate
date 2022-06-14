@@ -1,9 +1,4 @@
-@mixin font(
-  $size: inherit,
-  $height: inherit,
-  $weight: inherit,
-  $family: inherit
-) {
+@mixin font($size: inherit, $height: inherit, $weight: inherit, $family: inherit) {
   font-size: $size;
   font-weight: $weight;
   line-height: $height;
