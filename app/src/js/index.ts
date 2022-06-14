@@ -4,7 +4,7 @@ import stylesModule from './image3.module.scss';
 
 import { Button } from './components';
 
-Button({ containerName: 'container__button', text: 'My Button!!!' });
+Button({ containerName: 'container__button', text: 'The Button - Created by JS component!!!' });
 
 interface $Params {
   selector: string;
