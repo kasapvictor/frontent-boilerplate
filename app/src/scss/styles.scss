@@ -7,21 +7,38 @@
 @import 'components/links';
 @import 'components/text';
 
+@import "layout/header";
 @import 'layout/section';
 @import 'layout/container';
 @import 'layout/columns';
 
+.images {
+  padding-top: 60px;
+}
+
+.image-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
 .image1 {
-  width: 200px;
   height: 100%;
   object-fit: cover;
 }
 
 .image2 {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
   background-image: url('../img/image2.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  border-radius: 8px;
+  overflow: hidden;
 }

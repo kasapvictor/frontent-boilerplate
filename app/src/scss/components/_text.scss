@@ -1,3 +1,23 @@
+.title-h1 {
+  padding-bottom: 20px;
+  @include font($size: $font-size-h1, $height: 1.2, $weight: 600, $family: inherit);
+}
+
+.title-h2 {
+  padding-bottom: 20px;
+  @include font($size: $font-size-h2, $height: 1.2, $weight: 600, $family: inherit);
+}
+
+.title-h3 {
+  padding-bottom: 20px;
+  @include font($size: $font-size-h3, $height: 1.2, $weight: 600, $family: inherit);
+}
+
+.title-h4 {
+  padding-bottom: 20px;
+  @include font($size: $font-size-h4, $height: 1.2, $weight: 600, $family: inherit);
+}
+
 .text {
 }
 

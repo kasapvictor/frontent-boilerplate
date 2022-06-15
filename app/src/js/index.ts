@@ -20,7 +20,7 @@ export const $ = <T extends HTMLElement>({ selector, scope = document }: $Params
 const app = $({ selector: '#app' });
 if (app) {
   app.innerHTML = `
-  <h1>Hello Vite!</h1>
+  <h1 class="title-h1">Hello Vite!</h1>
   <a href="https://vitejs.dev/guide/features.html" class="link" target="_blank">Documentation</a>
 `;
 }
