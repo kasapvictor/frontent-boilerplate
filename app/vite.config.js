@@ -1,6 +1,7 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
-import vsharp from 'vite-plugin-vsharp';
+import sharp from 'vite-plugin-vsharp';
+import legacy from '@vitejs/plugin-legacy';
 
 import rollupConfig from './rollup.config';
 
@@ -10,7 +11,7 @@ const vSharp = (devMode) => {
     return '';
   }
 
-  return vsharp({
+  return sharp({
     '.jpg': {
       quality: 35,
     },
@@ -49,7 +50,12 @@ export default defineConfig(() => ({
   css: {
     devSourcemap: true,
   },
-  plugins: [vSharp(isDevMode)],
+  plugins: [
+    vSharp(isDevMode),
+    legacy({
+      targets: ['IE >= 11'],
+    }),
+  ],
 }));
 
 // https://vitejs.dev/config
