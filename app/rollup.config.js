@@ -21,7 +21,10 @@ const assetFileNames = ({ name }) => {
 };
 
 export default {
-  input: [resolve(__dirname, 'src/index.html'), resolve(__dirname, 'src/page1.html')],
+  input: {
+    home: resolve(__dirname, 'src/index.html'),
+    about: resolve(__dirname, 'src/page1.html'),
+  },
   output: {
     entryFileNames: 'js/[name].js',
     chunkFileNames: 'js/[name].js',
