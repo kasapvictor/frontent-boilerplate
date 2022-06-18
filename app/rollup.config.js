@@ -1,4 +1,5 @@
 import { resolve } from 'path';
+import { getBabelOutputPlugin } from '@rollup/plugin-babel';
 
 const assetFileNames = ({ name }) => {
   if (/\.css$/i.test(name ?? '')) {
@@ -23,7 +24,7 @@ const assetFileNames = ({ name }) => {
 export default {
   input: {
     home: resolve(__dirname, 'src/index.html'),
-    about: resolve(__dirname, 'src/page1.html'),
+    about: resolve(__dirname, 'src/about.html'),
   },
   output: {
     entryFileNames: 'js/[name].js',
@@ -31,4 +32,9 @@ export default {
     assetFileNames,
     format: 'esm',
   },
+  plugins: [
+    getBabelOutputPlugin({
+      presets: ['@babel/preset-env'],
+    }),
+  ],
 };

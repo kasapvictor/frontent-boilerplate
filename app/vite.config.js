@@ -1,9 +1,8 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import sharp from 'vite-plugin-vsharp';
-import legacy from '@vitejs/plugin-legacy';
 
-import rollupConfig from './rollup.config';
+import rollupOptions from './rollup.config';
 
 const isDevMode = process.env.NODE_ENV !== 'production';
 const vSharp = (devMode) => {
@@ -45,17 +44,12 @@ export default defineConfig(() => ({
     minify: !isDevMode,
     outDir: resolve(__dirname, 'dist'),
     sourcemap: isDevMode ? false : 'inline',
-    rollupOptions: rollupConfig,
+    rollupOptions,
   },
   css: {
     devSourcemap: true,
   },
   plugins: [
     vSharp(isDevMode),
-    legacy({
-      targets: ['IE >= 11'],
-    }),
   ],
 }));
-
-// https://vitejs.dev/config

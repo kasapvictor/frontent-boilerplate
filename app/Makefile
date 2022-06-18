@@ -1,5 +1,5 @@
 install:
-	nmp install
+	npm install
 
 rm-cache:
 	rm -rf .cache
