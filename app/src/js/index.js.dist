@@ -1,3 +1,0 @@
-import '../scss/home.scss';
-
-console.log('HOME PAGE');

@@ -1,25 +1,29 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { resolve } = require("@babel/core/lib/vendor/import-meta-resolve");
 
-const pages = ['index', 'about'];
+const pages = [
+  { name: 'index', ext: 'pug', script: 'ts' },
+  { name: 'about', ext: 'html', script: 'js' },
+];
 
 const entry = (pages) => {
-  return pages.reduce((config, page) => {
-    config[page] = `./src/js/${page}.ts`;
+  return pages.reduce((config, { name, script}) => {
+    config[name] = path.resolve(__dirname, `./src/js/${name}.${script}`);
     return config;
   }, {});
 };
 
 const HtmlWebpackPluginPages = (pages = []) => pages.map(
-  (page) =>
+  ({name, ext}) =>
     new HtmlWebpackPlugin({
       favicon: './src/img/256x256.png',
-      template: `./src/${page}.pug`,
-      filename: `${page}.html`,
+      template: `./src/${name}.${ext}`,
+      filename: `${name}.html`,
       inject: 'body',
       publicPath: './',
-      chunks: [page],
+      chunks: [name],
     })
 );
 
@@ -27,7 +31,7 @@ module.exports = {
   devtool: 'source-map',
 
   entry: entry(pages),
-  
+
   output: {
     filename: 'js/[name].js',
     path: path.resolve(__dirname, 'dist'),
@@ -123,15 +127,5 @@ module.exports = {
         filename: `css/[name].css`
       }),
       ...HtmlWebpackPluginPages(pages)
-      // ].concat(['index', 'about'].map(
-      // 	(page) =>
-      // 	new HtmlWebpackPlugin({
-      // 		favicon: './src/img/256x256.png',
-      // 		template: `./src/${page}.pug`,
-      // 		filename: `${page}.pug`,
-      // 		inject: 'body',
-      // 		publicPath: './'
-      // 	})
-      // ))
     ]
 };

@@ -1,7 +1,5 @@
 import '../scss/about.scss';
 
-import { button } from './button';
-
-document.body.append(button('About button'));
+import './common';
 
 console.log('ABOUT PAGE');
