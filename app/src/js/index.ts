@@ -1,4 +1,5 @@
 import '../scss/home.scss';
+// import '../img/image2.jpg';
 
 import { Button } from './components';
 

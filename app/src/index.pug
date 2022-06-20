@@ -6,6 +6,15 @@ html(lang='en')
 	include view/layouts/_head
 
 	body(class="d-flex flex-column min-vh-100")
+
+		+jpg('image2')
+
+		+svg('enter')
+
+		//img(src=require("./img/image2.jpg"))
+		//img(src='./img/image2.jpg')
+		//img(src='./svg/ok.svg')
+
 		include view/layouts/_header
 
 		include view/content/_home

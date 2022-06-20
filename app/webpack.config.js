@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { resolve } = require("@babel/core/lib/vendor/import-meta-resolve");
 
 const pages = [
   { name: 'index', ext: 'pug', script: 'ts' },
@@ -39,8 +38,10 @@ module.exports = {
   },
   
   resolve: {
-    // Add `.ts` and `.tsx` as a resolvable extension.
-    extensions: [".ts", ".tsx", ".js"]
+    extensions: [".ts", ".tsx", ".js"],
+    alias: {
+      images: path.resolve(__dirname, 'src/img/'),
+    },
   },
   
   // на выходе создает отдельный js файл подключаемых библиотек
@@ -66,7 +67,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
+            presets: ['@babel/preset-env'],
           }
         }
       },
@@ -111,6 +112,11 @@ module.exports = {
         generator: {
           filename: `fonts/[name][ext]`
         }
+      },
+      // HTML
+      {
+        test: /\.html$/,
+        use: 'html-loader'
       },
       //PUG
       {
