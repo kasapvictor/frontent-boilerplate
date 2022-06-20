@@ -7,6 +7,5 @@
 - postcss
 - autoprefixer
 - lodash
-- i18next
 - yup
 - jest

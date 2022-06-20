@@ -5,8 +5,8 @@
   "license": "ISC",
   "scripts": {
     "server": "NODE_ENV=development webpack serve",
-    "build": "NODE_ENV=production webpack",
-    "build2": "NODE_ENV=development webpack",
+    "build-prod": "NODE_ENV=production webpack",
+    "build-dev": "NODE_ENV=development webpack",
     "test": "jest --colors"
   },
   "devDependencies": {
@@ -41,15 +41,8 @@
   },
   "dependencies": {
     "axios": "^0.26.1",
-    "i18next": "^21.6.14",
     "lodash": "^4.17.21",
-    "npm-check-updates": "^11.8.5",
     "on-change": "^4.0.0",
     "yup": "^0.32.11"
-  },
-  "jest": {
-    "verbose": true,
-    "testURL": "http://localhost/",
-    "testEnvironment": "jsdom"
   }
 }
