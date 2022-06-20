@@ -6,7 +6,7 @@ const pages = ['index', 'about'];
 
 const entry = (pages) => {
   return pages.reduce((config, page) => {
-    config[page] = `./src/js/${page}.js`;
+    config[page] = `./src/js/${page}.ts`;
     return config;
   }, {});
 };
@@ -32,6 +32,11 @@ module.exports = {
     filename: 'js/[name].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true
+  },
+  
+  resolve: {
+    // Add `.ts` and `.tsx` as a resolvable extension.
+    extensions: [".ts", ".tsx", ".js"]
   },
   
   // на выходе создает отдельный js файл подключаемых библиотек
@@ -60,6 +65,11 @@ module.exports = {
             presets: ['@babel/preset-env']
           }
         }
+      },
+      // TS
+      {
+        test: /\.tsx?$/,
+        loader: "ts-loader",
       },
       // STYLES
       {

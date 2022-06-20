@@ -3,10 +3,10 @@ build:
 	docker-compose build
 
 up:
-	docker-compose up -d; docker exec -it webapp zsh || winpty docker exec -it webapp zsh
+	docker-compose up -d; docker exec -it webapp-webpack zsh || winpty docker exec -it webapp-webpack zsh
 
 down:
 	docker-compose down
 
 bash:
-	docker exec -it webapp zsh || winpty docker exec -it webapp zsh
+	docker exec -it webapp-webpack zsh || winpty docker exec -it webapp-webpack zsh
