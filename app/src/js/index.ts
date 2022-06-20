@@ -3,6 +3,6 @@ import '../scss/home.scss';
 
 import { Button } from './components';
 
-Button({ containerName: 'container__button', text: 'My Button!!!' });
+Button({ containerName: 'container__button', text: 'My Button!22' });
 
 console.log('HOME PAGE');

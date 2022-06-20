@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const mode =  process.env.NODE_ENV;
 const pages = [
   { name: 'index', ext: 'pug', script: 'ts' },
   { name: 'about', ext: 'html', script: 'js' },
@@ -27,6 +28,8 @@ const HtmlWebpackPluginPages = (pages = []) => pages.map(
 );
 
 module.exports = {
+  mode,
+  
   devtool: 'source-map',
 
   entry: entry(pages),
@@ -39,9 +42,6 @@ module.exports = {
   
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
-    alias: {
-      images: path.resolve(__dirname, 'src/img/'),
-    },
   },
   
   // на выходе создает отдельный js файл подключаемых библиотек
@@ -53,7 +53,7 @@ module.exports = {
   
   devServer: {
     hot: true,
-    port: 9000,
+    port: 4444,
     static: './src',
     watchFiles: ['./src/**/*']
   },
@@ -95,7 +95,7 @@ module.exports = {
         type: 'asset/resource',
         generator: {
           filename: 'img/[name][ext]',
-        }
+        },
       },
       // SVG
       {
