@@ -3,6 +3,6 @@ import '../scss/home.scss';
 
 import { Button } from './components';
 
-Button({ containerName: 'container__button', text: 'My Button!22' });
+Button({ containerName: 'button-wrapper', text: 'Button from JS', cls: 'button' });
 
 console.log('HOME PAGE');

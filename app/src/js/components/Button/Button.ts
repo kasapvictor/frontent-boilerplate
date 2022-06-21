@@ -5,9 +5,10 @@ const buttonHandler = () => {
   console.log('Click test Button OK');
 };
 
-const Button = ({ containerName, text }: ButtonProps): void => {
+const Button = ({ containerName, text, cls = "" }: ButtonProps): void => {
   const button = document.createElement('button');
   button.innerText = text;
+  button.classList.add(cls);
 
   button.addEventListener('click', buttonHandler);
 

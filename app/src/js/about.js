@@ -2,6 +2,7 @@ import '../scss/about.scss';
 
 import './common';
 
-console.log('ABOUT PAGE');
+// eslint-disable-next-line no-console
+console.log('---> ABOUT PAGE');
 
-[1,2,3].map((number) => number + 1);
+[1, 2, 3].map((number) => number + 1);

@@ -1,0 +1,47 @@
+.title-h1 {
+  padding-bottom: 20px;
+  @include font($font-size-h1, 1.2, 600);
+}
+
+.title-h2 {
+  padding-bottom: 20px;
+  @include font($font-size-h2, 1.2, 600);
+}
+
+.title-h3 {
+  padding-bottom: 20px;
+  @include font($font-size-h3, 1.2, 600);
+}
+
+.title-h4 {
+  padding-bottom: 20px;
+  @include font($font-size-h4, 1.2, 600);
+}
+
+.text {
+  @include font($font-size-m, 1.5, 400, inherit, $color1);
+}
+
+.text--white {
+  color: $color2;
+}
+
+.text--middle {
+  font-size: 2.8rem;
+}
+
+.text--small {
+  font-size: 1.8rem;
+}
+
+.text--right {
+  text-align: right;
+}
+
+.text--semibold {
+  font-weight: 500;
+}
+
+.mark {
+  color: $color4;
+}

@@ -1,0 +1,11 @@
+.button {
+  padding: 15px 30px;
+  background-color: $color6;
+  border-radius: 8px;
+  color: $color2;
+  @extend %transition-2;
+
+  &:hover {
+    background-color: $color5;
+  }
+}

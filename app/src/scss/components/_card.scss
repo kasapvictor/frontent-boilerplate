@@ -1,0 +1,11 @@
+.card {
+  width: 200px;
+  height: 400px;
+  padding: 10px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card--box-shadow {
+  box-shadow: 0 10px 80px 0 rgba(0, 0, 0, .2);
+}

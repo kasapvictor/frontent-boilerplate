@@ -1,13 +1,11 @@
 {
-  "name": "frontend",
+  "name": "frontend-webpack",
   "version": "1.0.0",
   "author": "Victor Kasap",
   "license": "ISC",
   "scripts": {
     "server": "NODE_ENV=development webpack serve",
-    "build-prod": "NODE_ENV=production webpack",
-    "build-dev": "NODE_ENV=development webpack",
-    "test": "jest --colors"
+    "build-dev": "webpack --mode development"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
@@ -18,10 +16,10 @@
     "autoprefixer": "^10.4.2",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-babel": "^5.3.1",
-    "eslint-plugin-import": "^2.24.2",
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
     "html-loader": "^3.1.2",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.0",

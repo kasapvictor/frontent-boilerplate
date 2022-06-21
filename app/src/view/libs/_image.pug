@@ -1,11 +1,11 @@
-mixin jpeg(name)
-    img(src=require(`./img/${name}.jpeg`) alt=name class="image")
+mixin jpeg(name, alt)
+    img(src=require(`./img/${name}.jpeg`) alt=alt class="image")
 
-mixin jpg(name)
-    img(src=require(`./img/${name}.jpg`) alt=name class="image")
+mixin jpg(name, alt)
+    img(src=require(`./img/${name}.jpg`) alt=alt class="image")
 
-mixin png(name)
-    img(src=require(`./img/${name}.png`) alt=name class="image")
+mixin png(name, alt)
+    img(src=require(`./img/${name}.png`) alt=alt class="image")
 
-mixin svg(name)
-    img(src=require(`./svg/${name}.svg`) alt=name class="image")
+mixin svg(name, alt)
+    img(src=require(`./svg/${name}.svg`) alt=alt class="image")

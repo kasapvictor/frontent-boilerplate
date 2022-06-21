@@ -1,24 +1,21 @@
 /* UTILS */
-@import 'utils/mixins';
+@import 'utils/reset';
+@import 'utils/fonts';
 @import 'utils/vars';
-@import 'utils/common';
+@import 'utils/base';
+@import 'utils/mixins';
+@import 'utils/placeholders';
 
 /* LAYOUTS */
+@import 'layouts/header';
+@import 'layouts/section';
 @import 'layouts/container';
+@import 'layouts/columns';
+@import 'layouts/footer';
 
 /* COMPONENTS */
-
-.image {
-  background-image: url('../img/image.jpeg');
-  width: 300px;
-  height: 300px;
-  background-position: center;
-  background-size: cover;
-}
-
-.example {
-  display: grid;
-  transition: all 0.5s;
-  user-select: none;
-  background: linear-gradient(to bottom, white, black);
-}
+@import 'components/link';
+@import 'components/text';
+@import 'components/button';
+@import 'components/image';
+@import 'components/card';
