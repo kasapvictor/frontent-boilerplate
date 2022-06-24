@@ -5,4 +5,4 @@ import { Button } from './components';
 
 Button({ containerName: 'button-wrapper', text: 'Button from JS', cls: 'button' });
 
-console.log('HOME PAGE');
+console.log('HOME PAGE11');
